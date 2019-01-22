@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.calculator.CalculatorFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/weightWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:background="@drawable/backgroud_rounded_grey"
+            app:layout_constraintBottom_toTopOf="@+id/heightWrapper"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/weightTv"
+                style="@style/WhiteTextView.DefaultSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_small"
+                android:text="@string/weight"
+                app:layout_constraintBottom_toTopOf="@+id/weightValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread" />
+
+            <TextView
+                android:id="@+id/weightValue"
+                style="@style/WhiteTextView.LargeSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:maxLength="4"
+                app:layout_constraintBottom_toTopOf="@+id/kgOrPoundSwitch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightTv" />
+
+            <ImageView
+                android:id="@+id/addWeightIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin_small"
+                android:background="#00000000"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_add_circle"
+                app:layout_constraintBottom_toBottomOf="@+id/weightValue"
+                app:layout_constraintStart_toEndOf="@+id/weightValue"
+                app:layout_constraintTop_toTopOf="@+id/weightValue" />
+
+
+            <ImageView
+                android:id="@+id/reduceWeightIv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="@dimen/default_margin_small"
+                android:background="#00000000"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_remove_circle"
+                app:layout_constraintBottom_toBottomOf="@+id/weightValue"
+                app:layout_constraintEnd_toStartOf="@+id/weightValue"
+                app:layout_constraintTop_toTopOf="@+id/weightValue" />
+
+            <com.suke.widget.SwitchButton
+                android:id="@+id/kgOrPoundSwitch"
+                android:layout_width="@dimen/switch_width"
+                android:layout_height="@dimen/switch_height"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:background="#00000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/weightValue"
+                app:layout_constraintStart_toStartOf="@+id/weightValue"
+                app:layout_constraintTop_toBottomOf="@+id/weightValue"
+                app:sb_background="@color/grayChecked"
+                app:sb_border_width="0dp"
+                app:sb_checked_color="@color/blueLight"
+                app:sb_shadow_effect="true"
+                app:sb_show_indicator="false"
+                app:sb_uncheck_color="@color/grayChecked" />
+
+            <TextView
+                android:id="@+id/kgTv"
+                style="@style/WhiteTextView.DefaultSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:text="@string/kg"
+                app:layout_constraintBottom_toBottomOf="@+id/kgOrPoundSwitch"
+                app:layout_constraintEnd_toStartOf="@+id/kgOrPoundSwitch"
+                app:layout_constraintTop_toTopOf="@+id/kgOrPoundSwitch" />
+
+            <TextView
+                android:id="@+id/poundTv"
+                style="@style/WhiteTextView.DefaultSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:text="@string/pound"
+                app:layout_constraintBottom_toBottomOf="@+id/kgOrPoundSwitch"
+                app:layout_constraintStart_toEndOf="@+id/kgOrPoundSwitch"
+                app:layout_constraintTop_toTopOf="@+id/kgOrPoundSwitch" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/heightWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:background="@drawable/backgroud_rounded_grey"
+            app:layout_constraintBottom_toTopOf="@+id/btnCalculate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weightWrapper">
+
+            <TextView
+                android:id="@+id/heightTv"
+                style="@style/WhiteTextView.DefaultSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_small"
+                android:text="@string/height"
+                app:layout_constraintBottom_toTopOf="@+id/heightValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread" />
+
+            <TextView
+                android:id="@+id/heightValue"
+                style="@style/WhiteTextView.LargeSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heightTv" />
+
+            <com.suke.widget.SwitchButton
+                android:id="@+id/feetsOrCmSwitch"
+                android:layout_width="@dimen/switch_width"
+                android:layout_height="@dimen/switch_height"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginBottom="@dimen/default_margin"
+                android:background="#00000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/heightValue"
+                app:layout_constraintStart_toStartOf="@+id/heightValue"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar"
+                app:sb_background="@color/grayChecked"
+                app:sb_border_width="0dp"
+                app:sb_checked_color="@color/blueLight"
+                app:sb_shadow_effect="true"
+                app:sb_show_indicator="false"
+                app:sb_uncheck_color="@color/grayChecked" />
+
+            <TextView
+                android:id="@+id/feetsTv"
+                style="@style/WhiteTextView.DefaultSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:text="@string/feets"
+                app:layout_constraintBottom_toBottomOf="@+id/feetsOrCmSwitch"
+                app:layout_constraintEnd_toStartOf="@+id/feetsOrCmSwitch"
+                app:layout_constraintTop_toTopOf="@+id/feetsOrCmSwitch" />
+
+            <TextView
+                android:id="@+id/cm"
+                style="@style/WhiteTextView.DefaultSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:text="@string/cm"
+                app:layout_constraintBottom_toBottomOf="@+id/feetsOrCmSwitch"
+                app:layout_constraintStart_toEndOf="@+id/feetsOrCmSwitch"
+                app:layout_constraintTop_toTopOf="@+id/feetsOrCmSwitch" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:progress="50"
+                android:progressBackgroundTint="@color/White"
+                android:secondaryProgressTintMode="@color/White"
+                android:thumbTint="@color/White"
+                app:layout_constraintBottom_toTopOf="@+id/feetsOrCmSwitch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heightValue" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnCalculate"
+            style="@style/BlueButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:text="@string/calculate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightWrapper" />
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
